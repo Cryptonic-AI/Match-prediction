@@ -10,10 +10,9 @@ API_KEY = os.getenv("API_FOOTBALL_KEY")
 if not API_KEY:
     raise SystemExit("❌ API_FOOTBALL_KEY environment variable is missing")
 
-# Premier League
-LEAGUE_ID = 39
+LEAGUE_ID = 39          # Premier League
+SEASON = 2025           # 2025/2026 season
 
-# We want fixtures from today until +7 days (covers "tomorrow" nicely)
 today = datetime.now(timezone.utc).date()
 date_from = today.isoformat()
 date_to   = (today + timedelta(days=7)).isoformat()
@@ -21,6 +20,7 @@ date_to   = (today + timedelta(days=7)).isoformat()
 url = "https://v3.football.api-sports.io/fixtures"
 params = {
     "league": LEAGUE_ID,
+    "season": SEASON,
     "from": date_from,
     "to": date_to,
     "timezone": "UTC",
@@ -32,7 +32,7 @@ headers = {
 # ------------------------------------------------------------------
 # Fetch
 # ------------------------------------------------------------------
-print(f"Fetching fixtures {date_from} → {date_to} …")
+print(f"Fetching fixtures {date_from} → {date_to} (season {SEASON}) …")
 response = requests.get(url, headers=headers, params=params, timeout=30)
 
 if response.status_code != 200:
@@ -42,7 +42,6 @@ if response.status_code != 200:
 
 data = response.json()
 
-# API-Football returns errors in a dict when something is wrong
 errors = data.get("errors")
 if errors:
     print("API returned errors:", errors)
@@ -133,7 +132,6 @@ else:
         <tbody>
 """
     for match in matches:
-        # fixture date is already ISO, we just format it nicely
         dt = match["fixture"]["date"].replace("T", " ")[:16]
         league = match["league"]["name"]
         home = match["teams"]["home"]["name"]
