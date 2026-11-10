@@ -1,27 +1,2291 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Match Predictions</title>
     <style>
-        body { font-family: sans-serif; margin: 20px; background-color: #141414; color: #fff; }
-        table { width: 100%; border-collapse: collapse; background: white; color: #333; }
-        th, td { padding: 12px; border: 1px solid #ccc; text-align: left; }
-        th { background-color: #333; color: white; }
-        tr:nth-child(even) { background-color: #f2f2f2; }
-        .prediction { font-weight: bold; color: #d63031; }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 24px;
+            background: #141414;
+            color: #eee;
+        }
+        h1 { margin-top: 0; font-size: 1.6rem; }
+        .meta { color: #888; font-size: 0.9rem; margin-bottom: 20px; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #1e1e1e;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+        th { background: #2a2a2a; font-weight: 600; color: #ccc; }
+        tr:last-child td { border-bottom: none; }
+        .prediction { font-weight: 700; color: #ff6b6b; }
+        .empty { padding: 40px; text-align: center; color: #888; }
+        .league { color: #aaa; font-size: 0.85rem; }
     </style>
 </head>
 <body>
-    <h2>Upcoming Match Predictions</h2>
-    <table>
-        <tr>
-            <th>Time</th>
-            <th>Tournament</th>
-            <th>Match</th>
-            <th>Prediction</th>
-        </tr>
+    <h1>Upcoming Match Predictions</h1>
+    <div class="meta">
+        All available tournaments · 2026-11-10 → 2026-11-12 · 
+        Generated 2026-11-10 23:41 UTC
+    </div>
 
+    <table>
+        <thead>
+            <tr>
+                <th>Time (UTC)</th>
+                <th>Tournament</th>
+                <th>Match</th>
+                <th>Prediction</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>2026-11-10 00:00</td>
+                <td class="league">Primera A (Colombia)</td>
+                <td>Junior vs Cucuta</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 00:00</td>
+                <td class="league">Kings Cup (Brazil)</td>
+                <td>Furia vs Dibrados FC</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 00:00</td>
+                <td class="league">Copa Uruguay (Uruguay)</td>
+                <td>Deportivo Maldonado vs Club Nacional</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 00:30</td>
+                <td class="league">Primera División (Bolivia)</td>
+                <td>Aurora vs Universitario de Vinto</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 00:30</td>
+                <td class="league">Division di Honor (Aruba)</td>
+                <td>River Plate vs Nacional</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 01:00</td>
+                <td class="league">Liga de Ascenso (Costa-Rica)</td>
+                <td>Rosario vs Pitbulls Santa Barbara FC</td>
+                <td class="prediction">X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 01:00</td>
+                <td class="league">Premier League (Jamaica)</td>
+                <td>Arnett Gardens vs Waterhouse</td>
+                <td class="prediction">X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 02:05</td>
+                <td class="league">Primera Premier (Mexico)</td>
+                <td>Chapulineros vs Cordobés</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 05:00</td>
+                <td class="league">Premier League (Mongolia)</td>
+                <td>Central Stallions vs Hunters</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 08:00</td>
+                <td class="league">Premier League (Mongolia)</td>
+                <td>Deren vs Ulaanbaatar</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 08:00</td>
+                <td class="league">Friendlies (World)</td>
+                <td>Qatar U23 vs Singapore U23</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 12:00</td>
+                <td class="league">Liga Revelação U23 (Portugal)</td>
+                <td>Santa Clara U23 vs Torreense U23</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 12:00</td>
+                <td class="league">Friendlies (World)</td>
+                <td>Vietnam U23 vs Thailand U23</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 12:15</td>
+                <td class="league">Friendlies Women (World)</td>
+                <td>Congo W vs Central Africa W</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 12:30</td>
+                <td class="league">Paraense U20 (Brazil)</td>
+                <td>Remo U20 vs Comercial PA U20</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 12:30</td>
+                <td class="league">Paraense U20 (Brazil)</td>
+                <td>Cabanos U20 vs Desportiva Paraense U20</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 12:30</td>
+                <td class="league">Paraense U20 (Brazil)</td>
+                <td>Tiradentes PA U20 vs Pinheirense U20</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 13:00</td>
+                <td class="league">Professional Development League (England)</td>
+                <td>Hull City U21 vs Fleetwood Town U21</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 13:00</td>
+                <td class="league">Ligue 1 (Congo-DR)</td>
+                <td>TP Mazembe vs Don Bosco</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 14:00</td>
+                <td class="league">Professional Development League (England)</td>
+                <td>Colchester United U21 vs Charlton Athletic U21</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 14:00</td>
+                <td class="league">Ligue 2 (Algeria)</td>
+                <td>JS Jijel vs CR Béni Thour</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 14:00</td>
+                <td class="league">Ligue 2 (Algeria)</td>
+                <td>MO Bejaia vs IRB Nezla</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 14:00</td>
+                <td class="league">Ligue 2 (Algeria)</td>
+                <td>WA Tlemcen vs RC Arba</td>
+                <td class="prediction">X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 14:00</td>
+                <td class="league">Ligue 2 (Algeria)</td>
+                <td>Paradou AC vs JSM Skikda</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 14:30</td>
+                <td class="league">Friendlies Women (World)</td>
+                <td>Gabon W vs Chad W</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 15:00</td>
+                <td class="league">NPFL (Nigeria)</td>
+                <td>Sporting Lagos vs Rivers United</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 15:00</td>
+                <td class="league">Cup (Egypt)</td>
+                <td>El Mokawloon vs Itesalat</td>
+                <td class="prediction">X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 17:30</td>
+                <td class="league">Liga II (Romania)</td>
+                <td>Metalul Buzău vs CSA Steaua Bucureşti</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 17:45</td>
+                <td class="league">UEFA Champions League Women (World)</td>
+                <td>Häcken W vs Chelsea W</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 17:45</td>
+                <td class="league">UEFA Champions League Women (World)</td>
+                <td>Real Madrid W vs Paris FC W</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 18:00</td>
+                <td class="league">Kvindeliga (Denmark)</td>
+                <td>Midtjylland W vs Odense Q W</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 18:00</td>
+                <td class="league">National 2 - Group C (France)</td>
+                <td>Nimes vs Istres</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 18:00</td>
+                <td class="league">Reserve League (Argentina)</td>
+                <td>Atlético Tucumán Res. vs Unión Santa Fe Res.</td>
+                <td class="prediction">X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 18:00</td>
+                <td class="league">Reserve League (Argentina)</td>
+                <td>Estudiantes La Plata Res vs San Martín San Juan Res.</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 18:00</td>
+                <td class="league">Reserve League (Argentina)</td>
+                <td>Gimnasia Mendoza 2 vs Aldosivi Res.</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 18:00</td>
+                <td class="league">Reserve League (Argentina)</td>
+                <td>Quilmes 2 vs Independiente Riva. Res.</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 18:00</td>
+                <td class="league">Reserve League (Argentina)</td>
+                <td>Tigre Res. vs Vélez Sársfield Res.</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 18:00</td>
+                <td class="league">UEFA Europa Cup - Women (World)</td>
+                <td>Feyenoord W vs VfL Wolfsburg W</td>
+                <td class="prediction">X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 18:00</td>
+                <td class="league">Copa del Rey (Spain)</td>
+                <td>Anaitasuna vs Alaves</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 18:00</td>
+                <td class="league">Copa del Rey (Spain)</td>
+                <td>Pamplona vs Eibar</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 18:00</td>
+                <td class="league">Sergipano - 2 (Brazil)</td>
+                <td>América de Pedrinhas vs Flamengo SE</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 18:00</td>
+                <td class="league">Sergipano - 2 (Brazil)</td>
+                <td>Caninde vs Socorrense</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 18:00</td>
+                <td class="league">Sergipano - 2 (Brazil)</td>
+                <td>Carmópolis vs Olímpico SE</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 18:00</td>
+                <td class="league">Pernambucano - 1 (Brazil)</td>
+                <td>América PE vs Serrano PE</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 18:00</td>
+                <td class="league">Pernambucano - 1 (Brazil)</td>
+                <td>Íbis vs Centro Limoeirense</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 18:30</td>
+                <td class="league">Paraense U20 (Brazil)</td>
+                <td>ESMAC U20 vs Vila Rica SC U20</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 18:30</td>
+                <td class="league">Paraense U20 (Brazil)</td>
+                <td>Belenense U20 vs Venus U20</td>
+                <td class="prediction">X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 18:30</td>
+                <td class="league">Paraense U20 (Brazil)</td>
+                <td>Estrela PA U20 vs Sport Belem U20</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:00</td>
+                <td class="league">EFL Trophy (England)</td>
+                <td>Crewe vs Wigan</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:00</td>
+                <td class="league">EFL Trophy (England)</td>
+                <td>Mansfield Town vs Chesterfield</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:00</td>
+                <td class="league">EFL Trophy (England)</td>
+                <td>Stockport County vs Tranmere</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:00</td>
+                <td class="league">EFL Trophy (England)</td>
+                <td>Burton Albion vs Notts County</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:00</td>
+                <td class="league">EFL Trophy (England)</td>
+                <td>Grimsby vs Nottingham Forest U21</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:00</td>
+                <td class="league">EFL Trophy (England)</td>
+                <td>Huddersfield vs Liverpool U21</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:00</td>
+                <td class="league">EFL Trophy (England)</td>
+                <td>Oxford United vs Cheltenham</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:00</td>
+                <td class="league">EFL Trophy (England)</td>
+                <td>Leicester vs Walsall</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:00</td>
+                <td class="league">EFL Trophy (England)</td>
+                <td>Stevenage vs Fulham U21</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:00</td>
+                <td class="league">EFL Trophy (England)</td>
+                <td>Bristol Rovers vs Reading</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:00</td>
+                <td class="league">EFL Trophy (England)</td>
+                <td>Plymouth vs Swindon Town</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:00</td>
+                <td class="league">EFL Trophy (England)</td>
+                <td>Barnet vs Leyton Orient</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:00</td>
+                <td class="league">EFL Trophy (England)</td>
+                <td>Northampton vs Gillingham</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:00</td>
+                <td class="league">Premier League Cup (England)</td>
+                <td>Millwall U21 vs Brighton U21</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:00</td>
+                <td class="league">Copa del Rey (Spain)</td>
+                <td>Amorebieta vs UD Logroñés</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:00</td>
+                <td class="league">Copa del Rey (Spain)</td>
+                <td>Mijas Las Lagunas vs Real Jaén</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:00</td>
+                <td class="league">Copa del Rey (Spain)</td>
+                <td>Trival Valderas vs Leganes</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:00</td>
+                <td class="league">Pernambucano - 1 (Brazil)</td>
+                <td>Atlético PE vs Guarany de Camaragibe</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:00</td>
+                <td class="league">Pernambucano - 1 (Brazil)</td>
+                <td>Jaguaré vs Ipojuca</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:30</td>
+                <td class="league">EFL Trophy (England)</td>
+                <td>Bradford vs York</td>
+                <td class="prediction">X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:30</td>
+                <td class="league">EFL Trophy (England)</td>
+                <td>Bromley vs Milton Keynes Dons</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:30</td>
+                <td class="league">EFL Trophy (England)</td>
+                <td>Crawley Town vs Brentford U21</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:30</td>
+                <td class="league">Non League Premier - Southern South (England)</td>
+                <td>Wimborne Town vs Poole Town</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:30</td>
+                <td class="league">Segunda División (Uruguay)</td>
+                <td>Sportivo Huracan vs CA River Plate</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:30</td>
+                <td class="league">Copa Uruguay (Uruguay)</td>
+                <td>Boston River vs Atletico Torque</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:45</td>
+                <td class="league">National League - North (England)</td>
+                <td>Morecambe vs Hereford</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:45</td>
+                <td class="league">National League - North (England)</td>
+                <td>Scarborough Athletic vs Marine</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:45</td>
+                <td class="league">National League - North (England)</td>
+                <td>Darlington 1883 vs Oxford City</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:45</td>
+                <td class="league">National League - South (England)</td>
+                <td>Hemel Hempstead Town vs Torquay</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:45</td>
+                <td class="league">National League - South (England)</td>
+                <td>Salisbury vs Braintree</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:45</td>
+                <td class="league">EFL Trophy (England)</td>
+                <td>Colchester vs Ipswich Town U21</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:45</td>
+                <td class="league">Non League Premier - Isthmian (England)</td>
+                <td>Cray Wanderers vs Three Bridges</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:45</td>
+                <td class="league">Non League Premier - Isthmian (England)</td>
+                <td>Chatham Town vs Leatherhead</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:45</td>
+                <td class="league">Non League Premier - Isthmian (England)</td>
+                <td>Enfield Town vs Lewes</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:45</td>
+                <td class="league">Non League Premier - Isthmian (England)</td>
+                <td>Whitehawk vs Welling United</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:45</td>
+                <td class="league">Non League Premier - Isthmian (England)</td>
+                <td>Eastbourne Borough vs Dulwich Hamlet</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:45</td>
+                <td class="league">Non League Premier - Northern (England)</td>
+                <td>Bury vs Cleethorpes Town</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:45</td>
+                <td class="league">Non League Premier - Northern (England)</td>
+                <td>Rylands vs Guiseley AFC</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:45</td>
+                <td class="league">Non League Premier - Northern (England)</td>
+                <td>Curzon Ashton vs Ilkeston Town</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:45</td>
+                <td class="league">Non League Premier - Northern (England)</td>
+                <td>Quorn vs Stockton Town</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:45</td>
+                <td class="league">Non League Premier - Northern (England)</td>
+                <td>Redcar Athletic vs Bamber Bridge</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:45</td>
+                <td class="league">Non League Premier - Northern (England)</td>
+                <td>Workington vs Alfreton Town</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:45</td>
+                <td class="league">Non League Premier - Southern Central (England)</td>
+                <td>Anstey Nomads vs Kettering Town</td>
+                <td class="prediction">X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:45</td>
+                <td class="league">Non League Premier - Southern Central (England)</td>
+                <td>Bury Town vs Bishop's Stortford</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:45</td>
+                <td class="league">Non League Premier - Southern Central (England)</td>
+                <td>Leamington vs Bromsgrove Sporting</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:45</td>
+                <td class="league">Non League Premier - Southern Central (England)</td>
+                <td>Leiston vs Real Bedford</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:45</td>
+                <td class="league">Non League Premier - Southern Central (England)</td>
+                <td>Rushall Olympic vs Halesowen Town</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:45</td>
+                <td class="league">Non League Premier - Southern Central (England)</td>
+                <td>Stamford vs Needham Market</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:45</td>
+                <td class="league">Non League Premier - Southern Central (England)</td>
+                <td>Stourbridge vs Alvechurch</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:45</td>
+                <td class="league">Non League Premier - Southern Central (England)</td>
+                <td>Stratford Town vs Banbury United</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:45</td>
+                <td class="league">Non League Premier - Southern Central (England)</td>
+                <td>Worcester City vs Racing Club Warwick</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:45</td>
+                <td class="league">Non League Premier - Southern South (England)</td>
+                <td>Bath City vs Taunton Town</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:45</td>
+                <td class="league">Non League Premier - Southern South (England)</td>
+                <td>Chertsey Town vs Chichester City</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:45</td>
+                <td class="league">Non League Premier - Southern South (England)</td>
+                <td>Evesham United vs Yate Town</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:45</td>
+                <td class="league">Non League Premier - Southern South (England)</td>
+                <td>Gloucester City vs Malvern Town</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:45</td>
+                <td class="league">Non League Premier - Southern South (England)</td>
+                <td>Sholing vs Chippenham Town</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 19:45</td>
+                <td class="league">Non League Premier - Southern South (England)</td>
+                <td>Uxbridge vs Hanwell Town</td>
+                <td class="prediction">X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 20:00</td>
+                <td class="league">UEFA Champions League Women (World)</td>
+                <td>Roma W vs Servette Chênois W</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 20:00</td>
+                <td class="league">UEFA Champions League Women (World)</td>
+                <td>Inter Milano W vs Manchester City W</td>
+                <td class="prediction">X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 20:00</td>
+                <td class="league">UEFA Champions League Women (World)</td>
+                <td>Paris Saint Germain W vs Bayern Munich W</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 20:00</td>
+                <td class="league">Copa del Rey (Spain)</td>
+                <td>Tavernes vs Valencia</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 20:30</td>
+                <td class="league">Primera B (Colombia)</td>
+                <td>Envigado vs Popayan</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 21:30</td>
+                <td class="league">Primera Division (El-Salvador)</td>
+                <td>Cacahuatique vs Firpo</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 22:00</td>
+                <td class="league">Copa Fares Lopes (Brazil)</td>
+                <td>Guarani De Juazeiro vs Quixada</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-10 23:30</td>
+                <td class="league">Copa Colombia (Colombia)</td>
+                <td>Internacional de Bogota vs America de Cali</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 00:00</td>
+                <td class="league">Copa Uruguay (Uruguay)</td>
+                <td>Liverpool Montevideo vs Juventud</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 00:00</td>
+                <td class="league">Liga de Expansión MX (Mexico)</td>
+                <td>Monarcas vs Leones Negros UDG</td>
+                <td class="prediction">X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 00:30</td>
+                <td class="league">Friendlies (World)</td>
+                <td>Sint Maarten vs Anguilla</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 01:00</td>
+                <td class="league">Primera Division (El-Salvador)</td>
+                <td>Isidro Metapán vs Platense</td>
+                <td class="prediction">X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 01:00</td>
+                <td class="league">Liga MX Femenil (Mexico)</td>
+                <td>Pumas UNAM W vs Tigres UANL W</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 01:30</td>
+                <td class="league">Copa Colombia (Colombia)</td>
+                <td>Once Caldas vs Atletico Nacional</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 03:00</td>
+                <td class="league">Liga MX Femenil (Mexico)</td>
+                <td>Juárez W vs Guadalajara W</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 07:30</td>
+                <td class="league">AFC U17 Asian Cup (World)</td>
+                <td>Guam U17 vs Palestine U17</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 08:00</td>
+                <td class="league">UEFA U17 Championship - Qualification (World)</td>
+                <td>Luxembourg U17 vs Italy U17</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 08:00</td>
+                <td class="league">AFC U17 Asian Cup (World)</td>
+                <td>Maldives U17 vs Hong Kong U17</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 08:00</td>
+                <td class="league">AFC U17 Asian Cup (World)</td>
+                <td>Mongolia U17 vs Yemen U17</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 08:30</td>
+                <td class="league">AFC U17 Asian Cup (World)</td>
+                <td>Cambodia U17 vs Afghanistan U17</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 08:30</td>
+                <td class="league">AFC U17 Asian Cup (World)</td>
+                <td>Philippines U17 vs Indonesia U17</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 09:00</td>
+                <td class="league">UEFA U17 Championship - Qualification (World)</td>
+                <td>Hungary U17 vs North Macedonia U17</td>
+                <td class="prediction">X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 09:00</td>
+                <td class="league">AFC U17 Asian Cup (World)</td>
+                <td>Pakistan U17 vs IR Iran U17</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 09:30</td>
+                <td class="league">Persha Liga (Ukraine)</td>
+                <td>Chernihiv vs Inhulets</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 09:30</td>
+                <td class="league">SAFF Championship (World)</td>
+                <td>India vs Maldives</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 10:00</td>
+                <td class="league">UEFA U17 Championship - Qualification (World)</td>
+                <td>Germany U17 vs Azerbaijan U17</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 10:00</td>
+                <td class="league">UEFA U17 Championship - Qualification (World)</td>
+                <td>Latvia U17 vs Croatia U17</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 10:00</td>
+                <td class="league">UEFA U17 Championship - Qualification (World)</td>
+                <td>Netherlands U17 vs Norway U17</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 10:00</td>
+                <td class="league">3. Lig - Group 1 (Turkey)</td>
+                <td>Düzcespor vs Gölcükspor</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 10:00</td>
+                <td class="league">3. Lig - Group 1 (Turkey)</td>
+                <td>Karabük İdman Yurdu vs Orduspor 1967</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 10:00</td>
+                <td class="league">3. Lig - Group 1 (Turkey)</td>
+                <td>Pazarspor vs Kartal Bulvarspor</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 10:00</td>
+                <td class="league">3. Lig - Group 1 (Turkey)</td>
+                <td>Tokat Bld Plevnespor vs Beykoz İshaklıspor</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 10:00</td>
+                <td class="league">3. Lig - Group 1 (Turkey)</td>
+                <td>Zonguldak Kömürspor vs Karadeniz Ereğli BSK</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 10:00</td>
+                <td class="league">3. Lig - Group 2 (Turkey)</td>
+                <td>Bursa Yıldırımspor vs Etimesgut SK</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 10:00</td>
+                <td class="league">3. Lig - Group 2 (Turkey)</td>
+                <td>Anadolu Üniversitesi vs Eskişehirspor</td>
+                <td class="prediction">X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 10:00</td>
+                <td class="league">3. Lig - Group 2 (Turkey)</td>
+                <td>Kepezspor vs Balıkesirspor</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 10:00</td>
+                <td class="league">3. Lig - Group 3 (Turkey)</td>
+                <td>Adana Adaletgucu vs Karaköprü Belediyespor</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 10:00</td>
+                <td class="league">3. Lig - Group 3 (Turkey)</td>
+                <td>Ağrı 1970 vs Adanaspor</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 10:00</td>
+                <td class="league">3. Lig - Group 3 (Turkey)</td>
+                <td>Bitlis Özgüzelderespor vs Diyarbekirspor</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 10:00</td>
+                <td class="league">3. Lig - Group 3 (Turkey)</td>
+                <td>Karaman FK vs Talasgücü Belediyespor</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 10:00</td>
+                <td class="league">3. Lig - Group 3 (Turkey)</td>
+                <td>Kırşehir Belediyespor vs Mazıdağı Fosfatspor</td>
+                <td class="prediction">X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 10:00</td>
+                <td class="league">3. Lig - Group 3 (Turkey)</td>
+                <td>Niğde Belediyesispor vs Yeşilyurt Belediyespor</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 10:00</td>
+                <td class="league">3. Lig - Group 3 (Turkey)</td>
+                <td>Yeni Malatyaspor vs Kırıkkale Büyük Anadolu</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 10:00</td>
+                <td class="league">3. Lig - Group 3 (Turkey)</td>
+                <td>Yozgat Bld Bozokspor vs Osmaniyespor</td>
+                <td class="prediction">X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 10:00</td>
+                <td class="league">UEFA U19 Championship - Qualification (World)</td>
+                <td>Georgia U19 vs Denmark U19</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 10:00</td>
+                <td class="league">UEFA U19 Championship - Qualification (World)</td>
+                <td>Estonia U19 vs Liechtenstein U19</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 10:00</td>
+                <td class="league">UEFA U19 Championship - Qualification (World)</td>
+                <td>Azerbaijan U19 vs Montenegro U19</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 10:00</td>
+                <td class="league">J-League Cup (Japan)</td>
+                <td>Kawasaki Frontale vs Kashiwa Reysol</td>
+                <td class="prediction">X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 10:00</td>
+                <td class="league">J-League Cup (Japan)</td>
+                <td>Vissel Kobe vs Machida Zelvia</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 10:00</td>
+                <td class="league">J-League Cup (Japan)</td>
+                <td>Yokohama F. Marinos vs Kashima</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 10:30</td>
+                <td class="league">J-League Cup (Japan)</td>
+                <td>Urawa vs Cerezo Osaka</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 11:00</td>
+                <td class="league">UEFA U17 Championship - Qualification (World)</td>
+                <td>France U17 vs Armenia U17</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 11:00</td>
+                <td class="league">UEFA U17 Championship - Qualification (World)</td>
+                <td>Republic of Ireland U17 vs Estonia U17</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 11:00</td>
+                <td class="league">3. Lig - Group 1 (Turkey)</td>
+                <td>Küçükçekmece Sinopspor vs Fatsa Belediyespor</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 11:00</td>
+                <td class="league">U19 League (Ukraine)</td>
+                <td>Obolon' Kyiv U19 vs Zhytomyr U19</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 11:00</td>
+                <td class="league">UEFA U19 Championship - Qualification (World)</td>
+                <td>Croatia U19 vs Hungary U19</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 11:00</td>
+                <td class="league">UEFA U19 Championship - Qualification (World)</td>
+                <td>Ukraine U19 vs Israel U19</td>
+                <td class="prediction">X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 11:00</td>
+                <td class="league">UEFA U19 Championship - Qualification (World)</td>
+                <td>Andorra U19 vs Poland U19</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 11:00</td>
+                <td class="league">Ligue 1 (Congo-DR)</td>
+                <td>CS Manika vs Butras</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 11:15</td>
+                <td class="league">UEFA U19 Championship - Qualification (World)</td>
+                <td>Belgium U19 vs Kosovo U19</td>
+                <td class="prediction">X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 11:20</td>
+                <td class="league">AFC U17 Asian Cup (World)</td>
+                <td>Macau U17 vs Syria U17</td>
+                <td class="prediction">X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 11:30</td>
+                <td class="league">UEFA U17 Championship - Qualification (World)</td>
+                <td>Belgium U17 vs Kosovo U17</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 11:30</td>
+                <td class="league">Coppa (Belarus)</td>
+                <td>Orsha vs Bate Borisov</td>
+                <td class="prediction">X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 12:00</td>
+                <td class="league">UEFA U17 Championship - Qualification (World)</td>
+                <td>Austria U17 vs Georgia U17</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 12:00</td>
+                <td class="league">UEFA U17 Championship - Qualification (World)</td>
+                <td>Turkey U17 vs San Marino U17</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 12:00</td>
+                <td class="league">3. Lig - Group 1 (Turkey)</td>
+                <td>Beykoz Anadolu vs Yalova Yeşilovaspor</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 12:00</td>
+                <td class="league">3. Lig - Group 1 (Turkey)</td>
+                <td>Galata vs Silivrispor</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 12:00</td>
+                <td class="league">3. Lig - Group 1 (Turkey)</td>
+                <td>İnkılapspor vs Amasyaspor 1968</td>
+                <td class="prediction">X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 12:00</td>
+                <td class="league">3. Lig - Group 2 (Turkey)</td>
+                <td>Ayvalikgucu vs Uşak Spor</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 12:00</td>
+                <td class="league">3. Lig - Group 2 (Turkey)</td>
+                <td>Bigaspor vs Altay</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 12:00</td>
+                <td class="league">3. Lig - Group 2 (Turkey)</td>
+                <td>Söke 1970 vs Alanya 1221 FK</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 12:00</td>
+                <td class="league">Third League - Southwest (Bulgaria)</td>
+                <td>Bansko vs Levski Sofia II</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 12:00</td>
+                <td class="league">Third League - Southwest (Bulgaria)</td>
+                <td>Oborishte vs Septemvri Sofia II</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 12:00</td>
+                <td class="league">1st League - RS (Bosnia)</td>
+                <td>Sutjeska Foča vs Leotar</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 12:00</td>
+                <td class="league">UEFA U19 Championship - Qualification (World)</td>
+                <td>Slovenia U19 vs England U19</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 12:00</td>
+                <td class="league">UEFA U19 Championship - Qualification (World)</td>
+                <td>North Macedonia U19 vs Northern Ireland U19</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 12:00</td>
+                <td class="league">UEFA U19 Championship - Qualification (World)</td>
+                <td>Switzerland U19 vs Malta U19</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 12:00</td>
+                <td class="league">AFC U17 Asian Cup (World)</td>
+                <td>Chinese Taipei U17 vs Thailand U17</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 12:00</td>
+                <td class="league">AFC U17 Asian Cup (World)</td>
+                <td>N. Mariana Islands U17 vs Kyrgyzstan U17</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 12:00</td>
+                <td class="league">AFC U17 Asian Cup (World)</td>
+                <td>Sri Lanka U17 vs Jordan U17</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 12:00</td>
+                <td class="league">CAF U23 Cup of Nations (World)</td>
+                <td>Kenya U23 vs Côte d'Ivoire U23</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 12:00</td>
+                <td class="league">Ligue 1 (Congo-DR)</td>
+                <td>New Jack vs FC Mk de Kinshasa</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 12:00</td>
+                <td class="league">Cup (Slovakia)</td>
+                <td>Nové Zámky vs Zemplín Michalovce</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 12:00</td>
+                <td class="league">Friendlies (World)</td>
+                <td>Vietnam vs Chinese Taipei</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 12:00</td>
+                <td class="league">CAF Women's Champions League (World)</td>
+                <td>FAR Rabat W vs Lekie W</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 12:30</td>
+                <td class="league">3. Lig - Group 2 (Turkey)</td>
+                <td>Denizli İYG vs Bucaspor 1928</td>
+                <td class="prediction">X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 12:30</td>
+                <td class="league">3. Lig - Group 2 (Turkey)</td>
+                <td>Karsiyaka vs Nilüfer Belediye</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 12:30</td>
+                <td class="league">3. Lig - Group 2 (Turkey)</td>
+                <td>Gaziemirspor vs Akşehirspor</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 12:30</td>
+                <td class="league">UEFA U19 Championship - Qualification (World)</td>
+                <td>Albania U19 vs Cyprus U19</td>
+                <td class="prediction">X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 12:30</td>
+                <td class="league">UEFA U19 Championship - Qualification (World)</td>
+                <td>Latvia U19 vs Moldova U19</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 12:35</td>
+                <td class="league">Friendlies (World)</td>
+                <td>China U19 vs Vietnam U19</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 13:00</td>
+                <td class="league">UEFA U17 Championship - Qualification (World)</td>
+                <td>Sweden U17 vs Albania U17</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 13:00</td>
+                <td class="league">UEFA U19 Championship - Qualification (World)</td>
+                <td>Czechia U19 vs Netherlands U19</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 13:00</td>
+                <td class="league">UEFA U19 Championship - Qualification (World)</td>
+                <td>Turkey U19 vs Slovakia U19</td>
+                <td class="prediction">X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 13:00</td>
+                <td class="league">UEFA U19 Championship - Qualification (World)</td>
+                <td>Germany U19 vs Sweden U19</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 13:00</td>
+                <td class="league">AFC U17 Asian Cup (World)</td>
+                <td>Lebanon U17 vs Oman U17</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 13:00</td>
+                <td class="league">AFC U17 Asian Cup (World)</td>
+                <td>Singapore U17 vs India U17</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 13:00</td>
+                <td class="league">CAF U23 Cup of Nations (World)</td>
+                <td>South Sudan U23 vs Senegal U23</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 13:00</td>
+                <td class="league">CAF U23 Cup of Nations (World)</td>
+                <td>Zimbabwe U23 vs Mali U23</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 13:00</td>
+                <td class="league">Ligue 1 (Congo-DR)</td>
+                <td>Blessing vs Saint-Luc</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 13:00</td>
+                <td class="league">Ligue 1 (Congo-DR)</td>
+                <td>Lubumbashi Sport vs Malole</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 13:00</td>
+                <td class="league">Ligue 1 (Congo-DR)</td>
+                <td>Tanganyika vs AS New Soger</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 13:00</td>
+                <td class="league">Ligue 1 (Congo-DR)</td>
+                <td>Dauphins Noirs vs Novakin</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 13:30</td>
+                <td class="league">UEFA U17 Championship - Qualification (World)</td>
+                <td>Slovakia U17 vs Malta U17</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 13:30</td>
+                <td class="league">First Amateur Division (Belgium)</td>
+                <td>Onhaye vs Habay-la-Neuve</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 13:30</td>
+                <td class="league">Serie D - Girone G (Italy)</td>
+                <td>Trastevere vs Anzio</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 14:00</td>
+                <td class="league">UEFA U17 Championship - Qualification (World)</td>
+                <td>Finland U17 vs Scotland U17</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 14:00</td>
+                <td class="league">UEFA U17 Championship - Qualification (World)</td>
+                <td>Montenegro U17 vs England U17</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 14:00</td>
+                <td class="league">III Liga - Group 3 (Poland)</td>
+                <td>Barycz Sułów vs Miedź Legnica II</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 14:00</td>
+                <td class="league">UEFA U19 Championship - Qualification (World)</td>
+                <td>Bulgaria U19 vs Gibraltar U19</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 14:00</td>
+                <td class="league">UEFA U19 Championship - Qualification (World)</td>
+                <td>Republic of Ireland U19 vs Greece U19</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 14:00</td>
+                <td class="league">Ýokary Liga (Turkmenistan)</td>
+                <td>Arkadag vs Altyn Asyr</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 14:00</td>
+                <td class="league">Ýokary Liga (Turkmenistan)</td>
+                <td>Merw vs Ahal</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 14:00</td>
+                <td class="league">CAF U23 Cup of Nations (World)</td>
+                <td>Eswatini U23 vs Algeria U23</td>
+                <td class="prediction">X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 14:00</td>
+                <td class="league">Ligue 1 (Congo-DR)</td>
+                <td>Vita Club vs JSK</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 14:00</td>
+                <td class="league">Friendlies (World)</td>
+                <td>England U18 vs Netherlands U18</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 14:00</td>
+                <td class="league">SAFF Championship (World)</td>
+                <td>Bangladesh vs Sri Lanka</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 14:00</td>
+                <td class="league">Friendlies (World)</td>
+                <td>Switzerland U18 vs Norway U19</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 14:30</td>
+                <td class="league">UEFA U19 Championship - Qualification (World)</td>
+                <td>Italy U19 vs Romania U19</td>
+                <td class="prediction">X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 15:00</td>
+                <td class="league">UEFA U17 Championship - Qualification (World)</td>
+                <td>Portugal U17 vs Andorra U17</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 15:00</td>
+                <td class="league">Tercera División RFEF - Group 11 (Spain)</td>
+                <td>Ibiza Islas Pitiusas vs Arenal</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 15:00</td>
+                <td class="league">UEFA U19 Championship - Qualification (World)</td>
+                <td>Spain U19 vs Iceland U19</td>
+                <td class="prediction">X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 15:00</td>
+                <td class="league">Cup (Slovakia)</td>
+                <td>Podbrezová vs Zlaté Moravce</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 15:00</td>
+                <td class="league">CAF Women's Champions League (World)</td>
+                <td>Mamelodi Sundowns W vs Kawempe Muslim W</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 15:20</td>
+                <td class="league">AFC U17 Asian Cup (World)</td>
+                <td>Bhutan U17 vs United Arab Emirates U17</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 15:30</td>
+                <td class="league">UEFA U17 Championship - Qualification (World)</td>
+                <td>Lithuania U17 vs Northern Ireland U17</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 15:30</td>
+                <td class="league">UEFA U19 Championship - Qualification (World)</td>
+                <td>Bosnia-Herzegovina U19 vs San Marino U19</td>
+                <td class="prediction">X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 15:45</td>
+                <td class="league">UEFA U19 Championship - Qualification (World)</td>
+                <td>Kazakhstan U19 vs Scotland U19</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 16:00</td>
+                <td class="league">Feminine Division 1 (France)</td>
+                <td>FC Fleury 91 W vs Toulouse W</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 16:00</td>
+                <td class="league">3. Lig - Group 3 (Turkey)</td>
+                <td>Silifke Belediyespor vs Yeni Mersin Idmanyurdu</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 16:00</td>
+                <td class="league">National 2 - Group C (France)</td>
+                <td>Saint-Priest vs Rumilly Vallières</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 16:00</td>
+                <td class="league">National 2 - Group C (France)</td>
+                <td>Fréjus St-Raphaël vs Troyes II</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 16:00</td>
+                <td class="league">Liga Premier Serie B (Mexico)</td>
+                <td>Atletico Hidalgo vs Celaya 2</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 16:00</td>
+                <td class="league">UEFA U19 Championship - Qualification (World)</td>
+                <td>Serbia U19 vs Faroe Islands U19</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 16:00</td>
+                <td class="league">AFC U17 Asian Cup (World)</td>
+                <td>Brunei U17 vs Bahrain U17</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 16:00</td>
+                <td class="league">UEFA Europa Cup - Women (World)</td>
+                <td>Czarni Sosnowiec W vs Brann W</td>
+                <td class="prediction">X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 16:00</td>
+                <td class="league">CAF U23 Cup of Nations (World)</td>
+                <td>Rwanda U23 vs Cameroon U23</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 16:30</td>
+                <td class="league">UEFA U17 Championship - Qualification (World)</td>
+                <td>Wales U17 vs Denmark U17</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 16:30</td>
+                <td class="league">Tercera División RFEF - Group 11 (Spain)</td>
+                <td>Manacor vs Inter Ibiza</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 16:30</td>
+                <td class="league">1 Lyga (Lithuania)</td>
+                <td>Babrungas vs Minija</td>
+                <td class="prediction">X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 17:00</td>
+                <td class="league">I Liga - Women (Slovakia)</td>
+                <td>Petržalka W vs Spartak Trnava W</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 17:00</td>
+                <td class="league">National 2 - Group C (France)</td>
+                <td>Bourges Foot 18 vs Hyères</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 17:00</td>
+                <td class="league">National 2 - Group C (France)</td>
+                <td>Andrézieux vs Chateauroux</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 17:00</td>
+                <td class="league">National 2 - Group C (France)</td>
+                <td>Toulon vs Limonest</td>
+                <td class="prediction">X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 17:00</td>
+                <td class="league">National 2 - Group C (France)</td>
+                <td>Canet Roussillon vs Hauts Lyonnais</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 17:00</td>
+                <td class="league">UEFA U19 Championship - Qualification (World)</td>
+                <td>Austria U19 vs Belarus U19</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 17:00</td>
+                <td class="league">UEFA U19 Championship - Qualification (World)</td>
+                <td>France U19 vs Norway U19</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 17:00</td>
+                <td class="league">UEFA U19 Championship - Qualification (World)</td>
+                <td>Portugal U19 vs Lithuania U19</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 17:00</td>
+                <td class="league">UEFA Europa Cup - Women (World)</td>
+                <td>Brøndby W vs Rosenborg W</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 17:00</td>
+                <td class="league">UEFA Europa Cup - Women (World)</td>
+                <td>Fenerbahce W vs Real Sociedad W</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 17:00</td>
+                <td class="league">CAF U23 Cup of Nations (World)</td>
+                <td>Botswana U23 vs Guinea U23</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 17:00</td>
+                <td class="league">CAF U23 Cup of Nations (World)</td>
+                <td>Libya U23 vs Ghana U23</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 17:00</td>
+                <td class="league">Cup (Czech-Republic)</td>
+                <td>Artis vs FK Jablonec</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 17:00</td>
+                <td class="league">Elite One (Cameroon)</td>
+                <td>Colombe vs Victoria United</td>
+                <td class="prediction">X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 17:30</td>
+                <td class="league">3. SNL - East (Slovenia)</td>
+                <td>Šampion Celje vs Šmartno</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 17:30</td>
+                <td class="league">UEFA Europa Cup - Women (World)</td>
+                <td>Eintracht Frankfurt W vs PSV/Eindhoven W</td>
+                <td class="prediction">X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 17:45</td>
+                <td class="league">Segunda División RFEF - Group 3 (Spain)</td>
+                <td>Castellonense vs La Nucía</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 17:45</td>
+                <td class="league">UEFA Champions League Women (World)</td>
+                <td>OH Leuven W vs Køge W</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 18:00</td>
+                <td class="league">UEFA U17 Championship - Qualification (World)</td>
+                <td>Bulgaria U17 vs Serbia U17</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 18:00</td>
+                <td class="league">Segunda División RFEF - Group 3 (Spain)</td>
+                <td>Castellón II vs Deportiva Minera</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 18:00</td>
+                <td class="league">Reserve League (Argentina)</td>
+                <td>Atl. Rafaela 2 vs Belgrano Córdoba Res.</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 18:00</td>
+                <td class="league">Reserve League (Argentina)</td>
+                <td>Banfield Res. vs Racing Club Res.</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 18:00</td>
+                <td class="league">Reserve League (Argentina)</td>
+                <td>Ferro 2 vs Defensa y Justicia Res.</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 18:00</td>
+                <td class="league">Reserve League (Argentina)</td>
+                <td>Independiente Res. vs Lanús Res.</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 18:00</td>
+                <td class="league">Reserve League (Argentina)</td>
+                <td>Instituto Res. vs San Lorenzo Res.</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 18:00</td>
+                <td class="league">Reserve League (Argentina)</td>
+                <td>Platense Res. vs Deportivo Riestra Res.</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 18:00</td>
+                <td class="league">CAF U23 Cup of Nations (World)</td>
+                <td>Burkina Faso U23 vs Zambia U23</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 18:00</td>
+                <td class="league">UEFA Europa Cup - Women (World)</td>
+                <td>Hammarby W vs Spartak Myjava W</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 18:00</td>
+                <td class="league">UEFA Europa Cup - Women (World)</td>
+                <td>Malmö FF W vs Ajax W</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 18:00</td>
+                <td class="league">UEFA Europa Cup - Women (World)</td>
+                <td>Torreense W vs Sparta Praha W</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 18:00</td>
+                <td class="league">Pernambucano - U20 (Brazil)</td>
+                <td>Retrô U20 vs Sport Recife U20</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 18:00</td>
+                <td class="league">Sergipano - 2 (Brazil)</td>
+                <td>Maruinense vs Independente Simão Dias</td>
+                <td class="prediction">X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 18:00</td>
+                <td class="league">Sergipano - 2 (Brazil)</td>
+                <td>Estanciano vs Barra SE</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 18:00</td>
+                <td class="league">Sergipano - 2 (Brazil)</td>
+                <td>Frei Paulistano vs Socorro Sport</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 18:30</td>
+                <td class="league">Segunda División RFEF - Group 3 (Spain)</td>
+                <td>Alcoyano vs Elche II</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 18:30</td>
+                <td class="league">Tercera División RFEF - Group 10 (Spain)</td>
+                <td>Utrera vs Córdoba II</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 18:30</td>
+                <td class="league">Copa Fares Lopes (Brazil)</td>
+                <td>Tirol/CEFAT vs Fortaleza B</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 18:30</td>
+                <td class="league">Première Division (Mali)</td>
+                <td>Derby Academie vs AS Kayes</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 19:00</td>
+                <td class="league">UEFA U17 Championship - Qualification (World)</td>
+                <td>Ukraine U17 vs Poland U17</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 19:00</td>
+                <td class="league">EFL Trophy (England)</td>
+                <td>Sheffield Wednesday vs Accrington ST</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 19:00</td>
+                <td class="league">EFL Trophy (England)</td>
+                <td>Barnsley vs Oldham</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 19:00</td>
+                <td class="league">National 2 - Group A (France)</td>
+                <td>St-Pryvé St-Hilaire vs Chantilly</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 19:00</td>
+                <td class="league">National 2 - Group A (France)</td>
+                <td>Dieppe vs Racing Colombes 92</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 19:00</td>
+                <td class="league">WSL Cup (England)</td>
+                <td>Birmingham City W vs Sunderland W</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 19:00</td>
+                <td class="league">WSL Cup (England)</td>
+                <td>Everton W vs Durham W</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 19:00</td>
+                <td class="league">WSL Cup (England)</td>
+                <td>Liverpool W vs Aston Villa W</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 19:00</td>
+                <td class="league">WSL Cup (England)</td>
+                <td>Tottenham Hotspur W vs Crystal Palace W</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 19:00</td>
+                <td class="league">Tercera División RFEF - Group 6 (Spain)</td>
+                <td>Ontinyent 1931 vs Utiel</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 19:00</td>
+                <td class="league">Premier League International Cup (World)</td>
+                <td>Sunderland U21 vs Paris Saint-Germain U21</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 19:00</td>
+                <td class="league">Premier League International Cup (World)</td>
+                <td>West Ham United U21 vs Juventus U21</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 19:00</td>
+                <td class="league">UEFA U19 Championship - Qualification (World)</td>
+                <td>Wales U19 vs Finland U19</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 19:00</td>
+                <td class="league">Pernambucano - 1 (Brazil)</td>
+                <td>Central SC vs Salgueiro</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 19:00</td>
+                <td class="league">Pernambucano - 1 (Brazil)</td>
+                <td>Facilnet vs Belo Jardim</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 19:00</td>
+                <td class="league">Pernambucano - 1 (Brazil)</td>
+                <td>Petrolina vs Cha Grande</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 19:00</td>
+                <td class="league">Pernambucano - 1 (Brazil)</td>
+                <td>Ypiranga PE vs Afogados</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 19:30</td>
+                <td class="league">Segunda División RFEF - Group 3 (Spain)</td>
+                <td>Cieza vs Valencia II</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 19:30</td>
+                <td class="league">WSL Cup (England)</td>
+                <td>Charlton Athletic W vs Ipswich Town W</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 19:30</td>
+                <td class="league">Segunda División (Uruguay)</td>
+                <td>La Luz vs Fenix</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 19:30</td>
+                <td class="league">Segunda División (Uruguay)</td>
+                <td>Tacuarembo vs Miramar</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 19:45</td>
+                <td class="league">Non League Premier - Northern (England)</td>
+                <td>Avro vs Whitby Town</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 19:45</td>
+                <td class="league">Non League Premier - Southern South (England)</td>
+                <td>Frome Town vs Plymouth Parkway</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 19:45</td>
+                <td class="league">WSL Cup (England)</td>
+                <td>Brighton W vs Watford W</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 20:00</td>
+                <td class="league">Reserve League (Argentina)</td>
+                <td>Talleres Córdoba Res. vs Sarmiento Res.</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 20:00</td>
+                <td class="league">UEFA Champions League Women (World)</td>
+                <td>Juventus W vs Lyon W</td>
+                <td class="prediction">X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 20:00</td>
+                <td class="league">UEFA Champions League Women (World)</td>
+                <td>SL Benfica W vs Austria Wien W</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 21:00</td>
+                <td class="league">Primera B (Colombia)</td>
+                <td>Quindio vs Real Cartagena</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 21:00</td>
+                <td class="league">Primera B (Colombia)</td>
+                <td>Tigres FC vs Real Cundinamarca</td>
+                <td class="prediction">1X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 21:00</td>
+                <td class="league">Primera B (Colombia)</td>
+                <td>Popayan vs Ind. Yumbo</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 21:00</td>
+                <td class="league">Primera B (Colombia)</td>
+                <td>Envigado vs Union Magdalena</td>
+                <td class="prediction">1</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 21:30</td>
+                <td class="league">Primera Division (El-Salvador)</td>
+                <td>Fuerte San Francisco vs Alianza</td>
+                <td class="prediction">2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 22:00</td>
+                <td class="league">Serie B (Brazil)</td>
+                <td>Londrina vs Nautico Recife</td>
+                <td class="prediction">12</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 23:00</td>
+                <td class="league">Eerste Divisie (Suriname)</td>
+                <td>FC Inter Wanica vs Transvaal</td>
+                <td class="prediction">X</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 23:00</td>
+                <td class="league">Primera B (Colombia)</td>
+                <td>Real Cundinamarca vs Real Cartagena</td>
+                <td class="prediction">X2</td>
+            </tr>
+
+            <tr>
+                <td>2026-11-11 23:00</td>
+                <td class="league">Copa de la División Profesional (Bolivia)</td>
+                <td>Independiente Petrolero vs Always Ready</td>
+                <td class="prediction">2</td>
+            </tr>
+
+        </tbody>
     </table>
+
 </body>
 </html>
