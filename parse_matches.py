@@ -1,68 +1,164 @@
+import os
 import random
+from datetime import datetime, timedelta, timezone
 import requests
 
-# Querying the English Premier League (ID 39) for the 2025/2026 season
+# ------------------------------------------------------------------
+# Configuration
+# ------------------------------------------------------------------
+API_KEY = os.getenv("API_FOOTBALL_KEY")
+if not API_KEY:
+    raise SystemExit("❌ API_FOOTBALL_KEY environment variable is missing")
+
+# Premier League
+LEAGUE_ID = 39
+
+# We want fixtures from today until +7 days (covers "tomorrow" nicely)
+today = datetime.now(timezone.utc).date()
+date_from = today.isoformat()
+date_to   = (today + timedelta(days=7)).isoformat()
+
 url = "https://v3.football.api-sports.io/fixtures"
-querystring = {"league": "39", "season": "2025", "next": "10"}
+params = {
+    "league": LEAGUE_ID,
+    "from": date_from,
+    "to": date_to,
+    "timezone": "UTC",
+}
 headers = {
-    'x-apisports-key': '7aba9c3f5016f642729e6bf7f22a6d04'
+    "x-apisports-key": API_KEY
 }
 
-response = requests.get(url, headers=headers, params=querystring)
+# ------------------------------------------------------------------
+# Fetch
+# ------------------------------------------------------------------
+print(f"Fetching fixtures {date_from} → {date_to} …")
+response = requests.get(url, headers=headers, params=params, timeout=30)
+
+if response.status_code != 200:
+    print(f"HTTP {response.status_code}")
+    print(response.text)
+    raise SystemExit("API request failed")
+
 data = response.json()
-matches = data.get('response', [])
-print(f"Total matches found: {len(matches)}")
 
-outcomes = ['1', 'X', '2', '1X', '2X']
+# API-Football returns errors in a dict when something is wrong
+errors = data.get("errors")
+if errors:
+    print("API returned errors:", errors)
+    raise SystemExit("API key or request invalid")
 
-html_content = """
-<!DOCTYPE html>
-<html>
+matches = data.get("response", [])
+print(f"Found {len(matches)} matches")
+
+# ------------------------------------------------------------------
+# Build HTML
+# ------------------------------------------------------------------
+outcomes = ["1", "X", "2", "1X", "12", "X2"]
+
+html = f"""<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Match Predictions</title>
     <style>
-        body { font-family: sans-serif; margin: 20px; background-color: #141414; color: #fff; }
-        table { width: 100%; border-collapse: collapse; background: white; color: #333; }
-        th, td { padding: 12px; border: 1px solid #ccc; text-align: left; }
-        th { background-color: #333; color: white; }
-        tr:nth-child(even) { background-color: #f2f2f2; }
-        .prediction { font-weight: bold; color: #d63031; }
+        body {{
+            font-family: system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 24px;
+            background: #141414;
+            color: #eee;
+        }}
+        h1 {{
+            margin-top: 0;
+            font-size: 1.6rem;
+        }}
+        .meta {{
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }}
+        table {{
+            width: 100%;
+            border-collapse: collapse;
+            background: #1e1e1e;
+            border-radius: 8px;
+            overflow: hidden;
+        }}
+        th, td {{
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }}
+        th {{
+            background: #2a2a2a;
+            font-weight: 600;
+            color: #ccc;
+        }}
+        tr:last-child td {{
+            border-bottom: none;
+        }}
+        .prediction {{
+            font-weight: 700;
+            color: #ff6b6b;
+        }}
+        .empty {{
+            padding: 40px;
+            text-align: center;
+            color: #888;
+        }}
     </style>
 </head>
 <body>
-    <h2>Upcoming Match Predictions</h2>
-    <table>
-        <tr>
-            <th>Time</th>
-            <th>Tournament</th>
-            <th>Match</th>
-            <th>Prediction</th>
-        </tr>
+    <h1>Upcoming Match Predictions</h1>
+    <div class="meta">
+        Premier League · {date_from} → {date_to} · Generated {datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")}
+    </div>
 """
 
-for match in matches:
-    time = match['fixture']['date'].replace('T', ' ')[:16]
-    league = match['league']['name']
-    home = match['teams']['home']['name']
-    away = match['teams']['away']['name']
-    prediction = random.choice(outcomes)
+if not matches:
+    html += '<div class="empty">No upcoming matches found in the selected period.</div>'
+else:
+    html += """
+    <table>
+        <thead>
+            <tr>
+                <th>Time (UTC)</th>
+                <th>Tournament</th>
+                <th>Match</th>
+                <th>Prediction</th>
+            </tr>
+        </thead>
+        <tbody>
+"""
+    for match in matches:
+        # fixture date is already ISO, we just format it nicely
+        dt = match["fixture"]["date"].replace("T", " ")[:16]
+        league = match["league"]["name"]
+        home = match["teams"]["home"]["name"]
+        away = match["teams"]["away"]["name"]
+        prediction = random.choice(outcomes)
 
-    html_content += f"""
-        <tr>
-            <td>{time}</td>
-            <td>{league}</td>
-            <td>{home} vs {away}</td>
-            <td class="prediction">{prediction}</td>
-        </tr>
-    """
-
-html_content += """
+        html += f"""
+            <tr>
+                <td>{dt}</td>
+                <td>{league}</td>
+                <td>{home} vs {away}</td>
+                <td class="prediction">{prediction}</td>
+            </tr>
+"""
+    html += """
+        </tbody>
     </table>
+"""
+
+html += """
 </body>
 </html>
 """
 
-with open("index.html", "w") as f:
-    f.write(html_content)
+with open("index.html", "w", encoding="utf-8") as f:
+    f.write(html)
 
-print("Webpage updated successfully.")
+print("✅ index.html updated successfully")
