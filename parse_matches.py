@@ -63,3 +63,4 @@ with open("index.html", "w") as f:
     f.write(html_content)
 
 print("Webpage updated successfully.")
+print("Raw data:", response.status_code)
