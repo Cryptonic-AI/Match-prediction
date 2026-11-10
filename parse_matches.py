@@ -1,8 +1,9 @@
 import random
 import requests
 
+# Querying the English Premier League (ID 39) for the 2025/2026 season
 url = "https://v3.football.api-sports.io/fixtures"
-querystring = {"next": "10"}  # Pulls the next upcoming 10 fixtures to ensure matches are always found
+querystring = {"league": "39", "season": "2025", "next": "10"}
 headers = {
     'x-apisports-key': '7aba9c3f5016f642729e6bf7f22a6d04'
 }
