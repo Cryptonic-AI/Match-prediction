@@ -1,67 +1,31 @@
-import requests
+name: Daily Scraper
 
-url = "https://v3.football.api-sports.io/fixtures"
-# Fetching matches for tomorrow
-querystring = {"date": "2026-11-12"}
-headers = {
-    'x-apisports-key': '7a0a9c3f5016f642729e3b5d1a2dae04'
-}
+on:
+  schedule:
+    - cron: '0 9 * * *'
+  workflow_dispatch:
 
-response = requests.get(url, headers=headers, params=querystring)
-data = response.json()
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-html_content = """
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Match Predictions</title>
-    <style>
-        body { font-family: sans-serif; margin: 20px; background-color: #f4f4f9; }
-        table { width: 100%; border-collapse: collapse; background: white; }
-        th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
-        th { background-color: #333; color: white; }
-        tr:nth-child(even) { background-color: #f9f9f9; }
-        .prediction { font-weight: bold; color: #2c3e50; }
-    </style>
-</head>
-<body>
-    <h2>Tomorrow's Match Predictions</h2>
-    <table>
-        <tr>
-            <th>Time</th>
-            <th>Tournament</th>
-            <th>Match</th>
-            <th>Prediction</th>
-        </tr>
-"""
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
 
-outcomes = ['1', 'X', '2', '1X', '2X']
+      - name: Install dependencies
+        run: pip install requests
 
-for match in data.get('response', []):
-    time = match['fixture']['date'].replace('T', ' ')[:16]
-    league = match['league']['name']
-    home = match['teams']['home']['name']
-    away = match['teams']['away']['name']
-    
-    # Simple logic placeholder for prediction
-    prediction = "1X" if "FC" in home else "1"
-    
-    html_content += f"""
-        <tr>
-            <td>{time}</td>
-            <td>{league}</td>
-            <td>{home} vs {away}</td>
-            <td class="prediction">{prediction}</td>
-        </tr>
-    """
+      - name: Run scraper
+        run: python parse_matches.py
 
-html_content += """
-    </table>
-</body>
-</html>
-"""
-
-with open("index.html", "w") as f:
-    f.write(html_content)
-
-print("Webpage updated successfully.")
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add index.html
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update match predictions [skip ci]" && git push)
