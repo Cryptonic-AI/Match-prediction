@@ -9,6 +9,8 @@ headers = {
 
 response = requests.get(url, headers=headers, params=querystring)
 data = response.json()
+matches = data.get('response', [])
+print(f"Total matches found: {len(matches)}")
 
 outcomes = ['1', 'X', '2', '1X', '2X']
 
@@ -37,7 +39,7 @@ html_content = """
         </tr>
 """
 
-for match in data.get('response', []):
+for match in matches:
     time = match['fixture']['date'].replace('T', ' ')[:16]
     league = match['league']['name']
     home = match['teams']['home']['name']
@@ -63,4 +65,3 @@ with open("index.html", "w") as f:
     f.write(html_content)
 
 print("Webpage updated successfully.")
-print("Raw data:", response.status_code)
