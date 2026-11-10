@@ -3,52 +3,58 @@ import random
 from datetime import datetime, timedelta, timezone
 import requests
 
-# ------------------------------------------------------------------
-# Configuration
-# ------------------------------------------------------------------
 API_KEY = os.getenv("API_FOOTBALL_KEY")
 if not API_KEY:
     raise SystemExit("❌ API_FOOTBALL_KEY environment variable is missing")
 
-LEAGUE_ID = 39          # Premier League
-SEASON = 2025           # 2025/2026 season
-
+# Get today + next 2 days (covers "upcoming / tomorrow")
 today = datetime.now(timezone.utc).date()
-date_from = today.isoformat()
-date_to   = (today + timedelta(days=7)).isoformat()
+dates = [
+    today.isoformat(),
+    (today + timedelta(days=1)).isoformat(),
+    (today + timedelta(days=2)).isoformat(),
+]
 
-url = "https://v3.football.api-sports.io/fixtures"
-params = {
-    "league": LEAGUE_ID,
-    "season": SEASON,
-    "from": date_from,
-    "to": date_to,
-    "timezone": "UTC",
-}
-headers = {
-    "x-apisports-key": API_KEY
-}
+headers = {"x-apisports-key": API_KEY}
+all_matches = []
 
-# ------------------------------------------------------------------
-# Fetch
-# ------------------------------------------------------------------
-print(f"Fetching fixtures {date_from} → {date_to} (season {SEASON}) …")
-response = requests.get(url, headers=headers, params=params, timeout=30)
+print("Fetching upcoming matches across all tournaments...")
 
-if response.status_code != 200:
-    print(f"HTTP {response.status_code}")
-    print(response.text)
-    raise SystemExit("API request failed")
+for d in dates:
+    url = "https://v3.football.api-sports.io/fixtures"
+    params = {
+        "date": d,
+        "timezone": "UTC",
+    }
+    response = requests.get(url, headers=headers, params=params, timeout=30)
 
-data = response.json()
+    if response.status_code != 200:
+        print(f"HTTP error on {d}: {response.status_code}")
+        continue
 
-errors = data.get("errors")
-if errors:
-    print("API returned errors:", errors)
-    raise SystemExit("API key or request invalid")
+    data = response.json()
+    errors = data.get("errors")
+    if errors:
+        print(f"API error on {d}: {errors}")
+        continue
 
-matches = data.get("response", [])
-print(f"Found {len(matches)} matches")
+    matches = data.get("response", [])
+    print(f"  {d}: found {len(matches)} matches")
+    all_matches.extend(matches)
+
+# Remove duplicates just in case
+seen = set()
+unique_matches = []
+for m in all_matches:
+    fid = m["fixture"]["id"]
+    if fid not in seen:
+        seen.add(fid)
+        unique_matches.append(m)
+
+print(f"Total unique matches: {len(unique_matches)}")
+
+# Sort by kick-off time
+unique_matches.sort(key=lambda x: x["fixture"]["date"])
 
 # ------------------------------------------------------------------
 # Build HTML
@@ -69,15 +75,8 @@ html = f"""<!DOCTYPE html>
             background: #141414;
             color: #eee;
         }}
-        h1 {{
-            margin-top: 0;
-            font-size: 1.6rem;
-        }}
-        .meta {{
-            color: #888;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-        }}
+        h1 {{ margin-top: 0; font-size: 1.6rem; }}
+        .meta {{ color: #888; font-size: 0.9rem; margin-bottom: 20px; }}
         table {{
             width: 100%;
             border-collapse: collapse;
@@ -90,34 +89,23 @@ html = f"""<!DOCTYPE html>
             text-align: left;
             border-bottom: 1px solid #333;
         }}
-        th {{
-            background: #2a2a2a;
-            font-weight: 600;
-            color: #ccc;
-        }}
-        tr:last-child td {{
-            border-bottom: none;
-        }}
-        .prediction {{
-            font-weight: 700;
-            color: #ff6b6b;
-        }}
-        .empty {{
-            padding: 40px;
-            text-align: center;
-            color: #888;
-        }}
+        th {{ background: #2a2a2a; font-weight: 600; color: #ccc; }}
+        tr:last-child td {{ border-bottom: none; }}
+        .prediction {{ font-weight: 700; color: #ff6b6b; }}
+        .empty {{ padding: 40px; text-align: center; color: #888; }}
+        .league {{ color: #aaa; font-size: 0.85rem; }}
     </style>
 </head>
 <body>
     <h1>Upcoming Match Predictions</h1>
     <div class="meta">
-        Premier League · {date_from} → {date_to} · Generated {datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")}
+        All available tournaments · {dates[0]} → {dates[-1]} · 
+        Generated {datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")}
     </div>
 """
 
-if not matches:
-    html += '<div class="empty">No upcoming matches found in the selected period.</div>'
+if not unique_matches:
+    html += '<div class="empty">No upcoming matches found (free plan limitation or no fixtures scheduled).</div>'
 else:
     html += """
     <table>
@@ -131,17 +119,20 @@ else:
         </thead>
         <tbody>
 """
-    for match in matches:
+    for match in unique_matches:
         dt = match["fixture"]["date"].replace("T", " ")[:16]
         league = match["league"]["name"]
+        country = match["league"].get("country", "")
         home = match["teams"]["home"]["name"]
         away = match["teams"]["away"]["name"]
         prediction = random.choice(outcomes)
 
+        league_display = f"{league}" + (f" ({country})" if country else "")
+
         html += f"""
             <tr>
                 <td>{dt}</td>
-                <td>{league}</td>
+                <td class="league">{league_display}</td>
                 <td>{home} vs {away}</td>
                 <td class="prediction">{prediction}</td>
             </tr>
