@@ -1,8 +1,12 @@
-import requests
+from datetime import datetime
 import random
+import requests
+
+# Automatically get today's date in YYYY-MM-DD format
+today_date = datetime.now().strftime("%Y-%m-%d")
 
 url = "https://v3.football.api-sports.io/fixtures"
-querystring = {"date": "2026-11-12"}
+querystring = {"date": today_date}
 headers = {
     'x-apisports-key': '7aba9c3f5016f642729e6bf7f22a6d04'
 }
@@ -10,26 +14,26 @@ headers = {
 response = requests.get(url, headers=headers, params=querystring)
 data = response.json()
 matches = data.get('response', [])
-print(f"Total matches found: {len(matches)}")
+print(f"Total matches found for {today_date}: {len(matches)}")
 
 outcomes = ['1', 'X', '2', '1X', '2X']
 
-html_content = """
+html_content = f"""
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Match Predictions</title>
+    <title>Match Predictions - {today_date}</title>
     <style>
-        body { font-family: sans-serif; margin: 20px; background-color: #141414; color: #fff; }
-        table { width: 100%; border-collapse: collapse; background: white; color: #333; }
-        th, td { padding: 12px; border: 1px solid #ccc; text-align: left; }
-        th { background-color: #333; color: white; }
-        tr:nth-child(even) { background-color: #f2f2f2; }
-        .prediction { font-weight: bold; color: #d63031; }
+        body {{ font-family: sans-serif; margin: 20px; background-color: #141414; color: #fff; }}
+        table {{ width: 100%; border-collapse: collapse; background: white; color: #333; }}
+        th, td {{ padding: 12px; border: 1px solid #ccc; text-align: left; }}
+        th {{ background-color: #333; color: white; }}
+        tr:nth-child(even) {{ background-color: #f2f2f2; }}
+        .prediction {{ font-weight: bold; color: #d63031; }}
     </style>
 </head>
 <body>
-    <h2>Tomorrow's Match Predictions</h2>
+    <h2>Match Predictions for {today_date}</h2>
     <table>
         <tr>
             <th>Time</th>
